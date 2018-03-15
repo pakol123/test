@@ -48,7 +48,7 @@ namespace Puzzle
             MessageBox.Show(para);
             if (para.Contains("circle") || para.Contains("gon") || para.Contains("equilateral"))
             {
-                MessageBox.Show("circle or polyogn detected");
+                
 
                 var b = int.Parse(listArray[0].ElementAt(listArray[2].IndexOf("NUM"))); // radius or length
                 int dependencyEdge = int.Parse(listArray[1].ElementAt(listArray[2].IndexOf("NUM")));
@@ -58,8 +58,7 @@ namespace Puzzle
                     dependencyEdge = int.Parse(listArray[1].ElementAt(dependencyEdge));
                 }
                 var a = listArray[0].ElementAt(dependencyEdge);
-                //MessageBox.Show(a);
-                //MessageBox.Show(b.ToString());
+                
 
                 if (para.Contains("gon"))
                 {
@@ -182,11 +181,10 @@ namespace Puzzle
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                 g.DrawPolygon(Pens.Black, verticies);
-               // g.Dispose();
-                //g = this.CreateGraphics();
+              
             }
 
-            //return polygon;
+           
         }
 
 
@@ -222,11 +220,7 @@ namespace Puzzle
         private Point[] CalculateScalene(int height, int width, Graphics g)
         {
             List<Point> points = new List<Point>();
-            /*Point center = new Point(this.Width / 2, this.Height / 2);
-            Point XY = new Point(center.X + 200, center.Y + 200);
-            points.Add(XY);
-            Point XZ= new Point(center.X + 100, center.Y + 100);
-            points.Add(XZ);*/
+            
             Point center = new Point(this.Width / 2, this.Height / 2);
             Point p1 = new Point(center.X, center.Y);
             Point p2 = new Point(center.X + width, center.Y);
@@ -310,11 +304,10 @@ namespace Puzzle
 
         private void DrawEqui(int radius, int startingAngle, Point center, Graphics g)
         {
-            //Get the location for each vertex of the polygon
+           
             Point[] verticies = CalculateEqui(radius, startingAngle, center);
 
-            //Render the polygon
-            //Bitmap polygon = new Bitmap(this.Width, this.Height);
+            
             using (g)
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -437,7 +430,7 @@ namespace Puzzle
 
         private Boolean checkshape(string shape)
         {
-            string[] shapes = new string[] { "circle","issosceles triangle","equilateral triangle","oval","scalene triangle","circle","square","hexagon","pentagon","heptagon","octagon"};
+            string[] shapes = new string[] { "circle","issosceles triangle","rectangle","equilateral triangle","oval","scalene triangle","circle","square","hexagon","pentagon","heptagon","octagon"};
 
             bool flg = false;
             foreach (var item in shapes)
